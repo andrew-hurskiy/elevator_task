@@ -26,6 +26,19 @@ class Elevator {
 		console.log(`Passengers are registered, total amount of them: ${this.currentAmountOfPassengers} and total weight: ${this.currentWeight}`)
 	}
 
+	deliverPassengers(){
+
+		for (let floorIndex = this.INITIAL_FLOOR; floorIndex <= this.AMOUNT_OF_FLOORS; floorIndex++){
+			console.log(`We are passing floor ${floorIndex} floor`)
+
+			if (this.isAnyBodyGoesOut(floorIndex)){
+				console.log(`We are stopping at the floor number ${floorIndex}, since there are passengers to go out`)
+				this.passengersGoOut(floorIndex)
+			}
+		}
+
+	}
+
 	resetFloorsMap(){
 		for (let floorIndex = this.INITIAL_FLOOR; floorIndex <= this.AMOUNT_OF_FLOORS; floorIndex++){
 			this.floorsPassengers.set(floorIndex, new Array())
@@ -63,18 +76,7 @@ class Elevator {
 			passengerThatNeedNotification.name)
 	}
 
-	deliverPassengers(){
 
-		for (let floorIndex = this.INITIAL_FLOOR; floorIndex <= this.AMOUNT_OF_FLOORS; floorIndex++){
-			console.log(`We are passing floor ${floorIndex} floor`)
-
-			if (this.isAnyBodyGoesOut(floorIndex)){
-				console.log(`We are stopping at the floor number ${floorIndex}, since there are passengers to go out`)
-				this.passengersGoOut(floorIndex)
-			}
-		}
-
-	}
 
 	isAnyBodyGoesOut(floor){
 		return (Object.keys(this.floorsPassengers.get(floor)).length !== 0)
@@ -136,16 +138,37 @@ class Person {
 
 
 
-
-let ivan = new Person('Ivan', 55, 8, true)
+// Normal passengers
+let ivan = new Person('Ivan', 55, 8, false)
 let vika = new Person('Vika', 87, 23, false)
 let sveta = new Person('Sveta', 100, 30, false)
 let nastya = new Person('Nastya', 77, 23, false)
 let vov4ik = new Person('Vov4ik', 55, 6, false)
 
-let passengers = [
-ivan, vika, sveta, nastya, vov4ik
+// Big passengers
+let max = new Person('Max', 132, 8, false)
+let vlad = new Person('Vlad', 144, 23, false)
+
+// People that need reminders
+let petia = new Person('Vasya', 132, 8, true)
+let vasya = new Person('Petia', 144, 23, true)
+
+
+
+let normalPassengers = [
+	ivan, vika, sveta, nastya, vov4ik
 ]
 
+let bigPassengers = [
+	sveta, max, vlad, nastya, ivan
+]
+
+let passengersThatNeedReminders = [
+	petia, vasya, ivan, max, vlad, sveta	
+] 
+
+
+
 let elevator = new Elevator()
-elevator.elevate(passengers)
+
+elevator.elevate(normalPassengers)
