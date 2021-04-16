@@ -1,0 +1,176 @@
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Passengers are registered, total amount of them: 5 and total weight: 374.
+We are passing floor 2 floor.
+We are passing floor 3 floor.
+We are passing floor 4 floor.
+We are passing floor 5 floor.
+We are stopping at the floor number 6, since there are passengers to go out.
+My name is Vov4ik and my weight is 55 and I am leaving elevator on 6-th floor.
+We are passing floor 6 floor.
+We are passing floor 7 floor.
+We are stopping at the floor number 8, since there are passengers to go out.
+My name is Ivan and my weight is 55 and I am leaving elevator on 8-th floor.
+We are passing floor 8 floor.
+We are passing floor 9 floor.
+We are passing floor 10 floor.
+We are passing floor 11 floor.
+We are passing floor 12 floor.
+We are passing floor 13 floor.
+We are passing floor 14 floor.
+We are passing floor 15 floor.
+We are passing floor 16 floor.
+We are passing floor 17 floor.
+We are passing floor 18 floor.
+We are passing floor 19 floor.
+We are passing floor 20 floor.
+We are stopping at the floor number 21, since there are passengers to go out.
+My name is Vika and my weight is 87 and I am leaving elevator on 21-th floor.
+We are passing floor 21 floor.
+We are passing floor 22 floor.
+We are stopping at the floor number 23, since there are passengers to go out.
+My name is Nastya and my weight is 77 and I am leaving elevator on 23-th floor.
+We are passing floor 23 floor.
+We are passing floor 24 floor.
+We are passing floor 25 floor.
+We are passing floor 26 floor.
+We are passing floor 27 floor.
+We are passing floor 28 floor.
+We are passing floor 29 floor.
+We are stopping at the floor number 30, since there are passengers to go out.
+My name is Sveta and my weight is 100 and I am leaving elevator on 30-th floor.
+We are passing floor 30 floor.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Passengers are registered, total amount of them: 3 and total weight: 287.
+We are passing floor 2 floor.
+We are passing floor 3 floor.
+We are passing floor 4 floor.
+We are passing floor 5 floor.
+We are passing floor 6 floor.
+We are passing floor 7 floor.
+We are stopping at the floor number 8, since there are passengers to go out.
+My name is Ivan and my weight is 55 and I am leaving elevator on 8-th floor.
+We are passing floor 8 floor.
+We are passing floor 9 floor.
+We are passing floor 10 floor.
+We are passing floor 11 floor.
+We are passing floor 12 floor.
+We are passing floor 13 floor.
+We are passing floor 14 floor.
+We are stopping at the floor number 15, since there are passengers to go out.
+My name is Max and my weight is 132 and I am leaving elevator on 15-th floor.
+We are passing floor 15 floor.
+We are passing floor 16 floor.
+We are passing floor 17 floor.
+We are passing floor 18 floor.
+We are passing floor 19 floor.
+We are passing floor 20 floor.
+We are passing floor 21 floor.
+We are passing floor 22 floor.
+We are passing floor 23 floor.
+We are passing floor 24 floor.
+We are passing floor 25 floor.
+We are passing floor 26 floor.
+We are passing floor 27 floor.
+We are passing floor 28 floor.
+We are passing floor 29 floor.
+We are stopping at the floor number 30, since there are passengers to go out.
+My name is Sveta and my weight is 100 and I am leaving elevator on 30-th floor.
+We are passing floor 30 floor.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Passengers are registered, total amount of them: 3 and total weight: 331.
+We are passing floor 2 floor.
+We are passing floor 3 floor.
+We are passing floor 4 floor.
+We are passing floor 5 floor.
+We are passing floor 6 floor.
+We are passing floor 7 floor.
+We are stopping at the floor number 8, since there are passengers to go out.
+Reminder for  Petia. Please leave.
+My name is Petia and my weight is 132 and I am leaving elevator on 8-th floor.
+Reminder for  Vasya. Please leave.
+My name is Vasya and my weight is 144 and I am leaving elevator on 8-th floor.
+My name is Ivan and my weight is 55 and I am leaving elevator on 8-th floor.
+We are passing floor 8 floor.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Passengers are registered, total amount of them: 4 and total weight: 264.
+We are stopping at the floor number 2, since there are passengers to go out.
+My name is Bob and my weight is 67 and I am leaving elevator on 2-th floor.
+Reminder for  Tom. Please leave.
+My name is Tom and my weight is 76 and I am leaving elevator on 2-th floor.
+We are passing floor 2 floor.
+We are passing floor 3 floor.
+We are passing floor 4 floor.
+We are passing floor 5 floor.
+We are passing floor 6 floor.
+We are passing floor 7 floor.
+We are passing floor 8 floor.
+We are passing floor 9 floor.
+We are passing floor 10 floor.
+We are passing floor 11 floor.
+We are passing floor 12 floor.
+We are passing floor 13 floor.
+We are passing floor 14 floor.
+We are passing floor 15 floor.
+We are passing floor 16 floor.
+We are passing floor 17 floor.
+We are passing floor 18 floor.
+We are passing floor 19 floor.
+We are passing floor 20 floor.
+We are passing floor 21 floor.
+We are passing floor 22 floor.
+We are passing floor 23 floor.
+We are passing floor 24 floor.
+We are passing floor 25 floor.
+We are passing floor 26 floor.
+We are passing floor 27 floor.
+We are passing floor 28 floor.
+We are stopping at the floor number 29, since there are passengers to go out.
+My name is Jim and my weight is 56 and I am leaving elevator on 29-th floor.
+We are passing floor 29 floor.
+We are stopping at the floor number 30, since there are passengers to go out.
+Reminder for  July. Please leave.
+My name is July and my weight is 65 and I am leaving elevator on 30-th floor.
+We are passing floor 30 floor.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Passengers are registered, total amount of them: 5 and total weight: 350.
+We are stopping at the floor number 2, since there are passengers to go out.
+My name is Bob and my weight is 67 and I am leaving elevator on 2-th floor.
+Reminder for  Tom. Please leave.
+My name is Tom and my weight is 76 and I am leaving elevator on 2-th floor.
+We are passing floor 2 floor.
+We are passing floor 3 floor.
+We are passing floor 4 floor.
+We are passing floor 5 floor.
+We are passing floor 6 floor.
+We are passing floor 7 floor.
+We are stopping at the floor number 8, since there are passengers to go out.
+My name is Ivan and my weight is 55 and I am leaving elevator on 8-th floor.
+We are passing floor 8 floor.
+We are passing floor 9 floor.
+We are passing floor 10 floor.
+We are passing floor 11 floor.
+We are passing floor 12 floor.
+We are passing floor 13 floor.
+We are passing floor 14 floor.
+We are passing floor 15 floor.
+We are passing floor 16 floor.
+We are passing floor 17 floor.
+We are passing floor 18 floor.
+We are passing floor 19 floor.
+We are passing floor 20 floor.
+We are stopping at the floor number 21, since there are passengers to go out.
+My name is Vika and my weight is 87 and I am leaving elevator on 21-th floor.
+We are passing floor 21 floor.
+We are passing floor 22 floor.
+We are passing floor 23 floor.
+We are passing floor 24 floor.
+We are passing floor 25 floor.
+We are passing floor 26 floor.
+We are passing floor 27 floor.
+We are passing floor 28 floor.
+We are passing floor 29 floor.
+We are stopping at the floor number 30, since there are passengers to go out.
+Reminder for  July. Please leave.
+My name is July and my weight is 65 and I am leaving elevator on 30-th floor.
+We are passing floor 30 floor.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
