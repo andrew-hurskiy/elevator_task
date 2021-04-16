@@ -1,6 +1,6 @@
 class Elevator {
 
-	INITIAL_FLOOR = 1
+	INITIAL_FLOOR = 2
 	AMOUNT_OF_FLOORS = 30
 	MAX_AMOUNT_OF_PASSENGERS = 5
 	MAX_TOTAL_WEIGHT = 400 
@@ -11,12 +11,19 @@ class Elevator {
 	floorsPassengers = new Map()
 	notifiersMap = new Map()
 
+	elevate(passengers){
+		this.registerPassengers(passengers)
+		this.deliverPassengers()
+		this.resetState()
+	}
+
 	registerPassengers(listOfPassengers){
 		this.resetFloorsMap()
 
 		while (this.isThereStillPlaceForAnybody()){
 				this.register(listOfPassengers.shift())
 		}
+		console.log(`Passengers are registered, total amount of them: ${this.currentAmountOfPassengers} and total weight: ${this.currentWeight}`)
 	}
 
 	resetFloorsMap(){
@@ -37,6 +44,7 @@ class Elevator {
 		if (this.isMaxWeightNoExceeded(passengerToRegister)){
 			this.assignPassengerToFloor(passengerToRegister)
 			this.currentAmountOfPassengers++
+			this.currentWeight += passengerToRegister.weight
 			if (passengerToRegister.needReminder === true){
 				this.addPassengerToNotifierList(passengerToRegister)
 			}
@@ -58,10 +66,10 @@ class Elevator {
 	deliverPassengers(){
 
 		for (let floorIndex = this.INITIAL_FLOOR; floorIndex <= this.AMOUNT_OF_FLOORS; floorIndex++){
-			console.log('We are passing floor ' + floorIndex)
+			console.log(`We are passing floor ${floorIndex} floor`)
 
 			if (this.isAnyBodyGoesOut(floorIndex)){
-				console.log('We are stopping at the floor number ' + floorIndex + ' , since there are passengers to go out ')
+				console.log(`We are stopping at the floor number ${floorIndex}, since there are passengers to go out`)
 				this.passengersGoOut(floorIndex)
 			}
 		}
@@ -84,12 +92,16 @@ class Elevator {
 
 	remindPassengerIfNecessary(passenger){
 		if (passenger.needReminder){
-			console.log('Reminder for ' + passenger.name + ' go out')
+			console.log(`Reminder for  ${passenger.name} . Please go out`)
 		}
 	}
 
 	resetState(){
-
+		this.currentAmountOfPassengers = 0
+		this.currentWeight = 0
+		this.currentAmountOfPassengers = 0
+		this.floorsPassengers = new Map()
+		this.notifiersMap = new Map()
 	}
 
 }
@@ -113,14 +125,11 @@ class Person {
 	}
 
 	enterElevator(){
-		console.log(`My name: ${this.name} 
-					 and weight: ${this.weight}
-					 and target floor is ${this.targetFloor} floor.`)
+		console.log(`My name: ${this.name}  and weight: ${this.weight} and target floor is ${this.targetFloor} floor.`)
 	}
 
 	leaveElevator(currentFloor){
-		console.log(`My name is ${this.name} and my weight is ${this.weight}
-					 and I am leaving elevator on ${currentFloor}`)
+		console.log(`My name is ${this.name} and my weight is ${this.weight} and I am leaving elevator on ${currentFloor}`)
 	}
 }
 
@@ -139,5 +148,4 @@ ivan, vika, sveta, nastya, vov4ik
 ]
 
 let elevator = new Elevator()
-elevator.registerPassengers(passengers)
-elevator.deliverPassengers()
+elevator.elevate(passengers)
