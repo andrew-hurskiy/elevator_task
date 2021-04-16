@@ -1,6 +1,6 @@
 class Elevator {
 
-	INITIAL_FLOOR = 1
+	FIRST_FLOOR_TO_STOP = 2
 	AMOUNT_OF_FLOORS = 30
 	MAX_AMOUNT_OF_PASSENGERS = 5
 	MAX_TOTAL_WEIGHT = 400 
@@ -15,22 +15,27 @@ class Elevator {
 		this.resetFloorsMap()
 
 		while (this.isThereStillPlaceForAnybody()){
-				this.register(listOfPassengers.shift())
+			this.register(listOfPassengers.shift())
 		}
 	}
 
 	resetFloorsMap(){
-		for (let floorIndex = this.INITIAL_FLOOR; floorIndex <= this.AMOUNT_OF_FLOORS; floorIndex++){
+		for (let floorIndex = this.FIRST_FLOOR_TO_STOP;
+			floorIndex <= this.AMOUNT_OF_FLOORS;
+			floorIndex++
+			){
 			this.floorsPassengers.set(floorIndex, new Array())
 		}
 	}
 
 	isThereStillPlaceForAnybody(){
-		return this.currentAmountOfPassengers < this.MAX_AMOUNT_OF_PASSENGERS
+		let isFreeSpace = this.currentAmountOfPassengers < this.MAX_AMOUNT_OF_PASSENGERS
+		return isFreeSpace
 	}
 
 	isMaxWeightNoExceeded(potentialPassenger){
-		return (this.currentWeight + potentialPassenger.weight) < this.MAX_TOTAL_WEIGHT
+		let isWeightNotExceeded = ((this.currentWeight + potentialPassenger.weight) < this.MAX_TOTAL_WEIGHT)
+		return isWeightNotExceeded
 	}
 
 	register(passengerToRegister){
@@ -56,12 +61,15 @@ class Elevator {
 	}
 
 	deliverPassengers(){
-
-		for (let floorIndex = this.INITIAL_FLOOR; floorIndex <= this.AMOUNT_OF_FLOORS; floorIndex++){
-			console.log('We are passing floor ' + floorIndex)
+		for (
+			let floorIndex = this.FIRST_FLOOR_TO_STOP;
+			floorIndex <= this.AMOUNT_OF_FLOORS;
+			floorIndex++
+			){
+			console.log(`We are passing floor ${floorIndex}`)
 
 			if (this.isAnyBodyGoesOut(floorIndex)){
-				console.log('We are stopping at the floor number ' + floorIndex + ' , since there are passengers to go out ')
+				console.log(`We are stoppoing at the floor ${floorIndex}, since there are passenger(s) to get out`)
 				this.passengersGoOut(floorIndex)
 			}
 		}
@@ -72,19 +80,19 @@ class Elevator {
 		return (Object.keys(this.floorsPassengers.get(floor)).length !== 0)
 	}
 
-	passengersGoOut(floor){
-		let passengersForThisFloor = this.floorsPassengers.get(floor)
-		this.floorsPassengers.delete(floor)
+	passengersGoOut(currentFloor){
+		let passengersForThisFloor = this.floorsPassengers.get(currentFloor)
+		this.floorsPassengers.delete(currentFloor)
 
 		for (let passenger of passengersForThisFloor){
 			this.remindPassengerIfNecessary(passenger)
-			passenger.leaveElevator(floor)
+			passenger.leaveElevator(currentFloor)
 		}
 	}
 
 	remindPassengerIfNecessary(passenger){
 		if (passenger.needReminder){
-			console.log('Reminder for ' + passenger.name + ' go out')
+			console.log(`Reminder for: ${passenger.name}. Plese leave elevator`)
 		}
 	}
 
@@ -113,14 +121,11 @@ class Person {
 	}
 
 	enterElevator(){
-		console.log(`My name: ${this.name} 
-					 and weight: ${this.weight}
-					 and target floor is ${this.targetFloor} floor.`)
+		console.log(`My name: ${this.name} and weight: ${this.weight} and target floor is ${this.targetFloor} floor.`)
 	}
 
 	leaveElevator(currentFloor){
-		console.log(`My name is ${this.name} and my weight is ${this.weight}
-					 and I am leaving elevator on ${currentFloor}`)
+		console.log(`My name is ${this.name} and my weight is ${this.weight} and I am leaving elevator on ${currentFloor} floor`)
 	}
 }
 
