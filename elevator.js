@@ -10,13 +10,24 @@
 // 4) Elevator have to deliver passenger(s) to their desired floors 
 // 5) Elevator should remind passengers that they should leave, in case passengers request such reminder
 // 6) Elevator should stop elevating if there are no more passengers inside
+function getRandomFloor() {
+    const MAX_FLOOR = 30
+    const MIN_FLOOR = 2
+    return Math.floor(Math.random() * (MAX_FLOOR - MIN_FLOOR + 1)) + MIN_FLOOR;
+}
+
+function getRandomWeight(){
+    const MIN_NORMAL_WEIGHT = 45
+    const MAX_NORMAL_WEIGHT = 100
+    return Math.floor(Math.random() * (MAX_NORMAL_WEIGHT - MIN_NORMAL_WEIGHT + 1)) + MIN_NORMAL_WEIGHT;
+}
 
 class Person {
     
     constructor(
         name='John',
-        weight=75,
-        targetFloor=15,
+        weight=getRandomWeight(),
+        targetFloor=getRandomFloor(),
         needReminder=false
     ) {
         this.name = name
@@ -39,7 +50,8 @@ class Elevator {
         this.INITIAL_FLOOR = 2
         this.AMOUNT_OF_FLOORS = 30
         this.MAX_AMOUNT_OF_PASSENGERS = 5
-        this.MAX_TOTAL_WEIGHT = 400 
+        this.MAX_TOTAL_WEIGHT = 400
+        this.MYSTERIOUS_FLOOR = 13
 	
         this.currentAmountOfPassengers = 0
         this.currentWeight = 0
@@ -51,20 +63,22 @@ class Elevator {
     elevate(passengers){
         this.registerPassengers(passengers)
         this.deliverPassengers()
-        this.resetState()
+        this.resetElevatorState()
     }
 
 
     registerPassengers(listOfPassengers){
         this.resetFloorsMap()
 
+        console.log('***Passengers onboarding process has started***')
+
         while (
-            this.isThereStillPlaceForAnybody() && 
-			this.isThereAnybodyInside(listOfPassengers)
+            this.isThereStillPlaceForAnybody()&& 
+			this.areTherePotentialPassengers(listOfPassengers)
         ){
             this.register(listOfPassengers.shift())
         }
-        console.log(`Passengers are registered, total amount of them: ${this.currentAmountOfPassengers} and total weight: ${this.currentWeight}.`)
+        console.log(`***Passengers onboarding is finished, total amount of them: ${this.currentAmountOfPassengers} and total weight: ${this.currentWeight}.***`)
     }
 
     resetFloorsMap(){
@@ -81,23 +95,43 @@ class Elevator {
         return this.currentAmountOfPassengers < this.MAX_AMOUNT_OF_PASSENGERS
     }
 
-    isThereAnybodyInside(passengers){
-        return passengers.length !== 0
+    areTherePotentialPassengers(potentialPassengers){
+        return potentialPassengers.length !== 0
     }
 
     register(passengerToRegister){
         if (this.isMaxWeightNoExceeded(passengerToRegister)){
-            this.assignPassengerToFloor(passengerToRegister)
-            this.currentAmountOfPassengers++
-            this.currentWeight += passengerToRegister.weight
-            if (passengerToRegister.needReminder === true){
-                this.addPassengerToNotifierList(passengerToRegister)
+            if (this.isTargetFloorIsValid(passengerToRegister)){
+                if (this.isTargetFloorIsNotMysterious(passengerToRegister)){
+                    this.assignPassengerToFloor(passengerToRegister)
+                    this.currentAmountOfPassengers++
+                    this.currentWeight += passengerToRegister.weight
+                    if (passengerToRegister.needReminder === true){
+                        console.log(`We are adding you ${passengerToRegister.name} to our reminder list`)
+                        this.addPassengerToNotifierList(passengerToRegister)
+                    }
+                }else {
+                    console.log(`Sorry, ${passengerToRegister.name}, but we are not stopping at floor ${passengerToRegister.targetFloor}, because it is haunted by demons and ghosts...., so we cannot accept you onboard.`)
+                }
+            }else {
+                console.log(`Sorry, ${passengerToRegister.name}, but we are not stopping at floor ${passengerToRegister.targetFloor}, so we cannot accept you as passenger`)
             }
+        }else {
+            console.log(`Sorry but max weight ${this.MAX_TOTAL_WEIGHT} is already exceeded, so we cannot accept you`)
         }
     }
 
     isMaxWeightNoExceeded(potentialPassenger){
         return (this.currentWeight + potentialPassenger.weight) < this.MAX_TOTAL_WEIGHT
+    }
+
+    isTargetFloorIsValid(potentialPassenger){
+        return (potentialPassenger.targetFloor >= this.INITIAL_FLOOR
+                 && potentialPassenger.targetFloor <= this.AMOUNT_OF_FLOORS)
+    }
+
+    isTargetFloorIsNotMysterious(potentialPassenger){
+        return (potentialPassenger.targetFloor !== this.MYSTERIOUS_FLOOR)
     }
 
     assignPassengerToFloor(passengerToAdd){
@@ -114,13 +148,18 @@ class Elevator {
 
 
     deliverPassengers(){
+        console.log('***Passengers delivery process has started***')
 
         for (
             let floorIndex = this.INITIAL_FLOOR;
             floorIndex <= this.AMOUNT_OF_FLOORS;
             floorIndex++)
         {
+            if (floorIndex === this.MYSTERIOUS_FLOOR){
+                continue
+            }
             if (this.isThereAnyPassengerInElevator()){
+                console.log(`We are passing floor ${floorIndex} floor.`)
                 if (this.isAnyBodyGoesOut(floorIndex)){
                     console.log(`We are stopping at the floor number ${floorIndex}, since there are passengers to go out.`)
                     this.passengersGoOut(floorIndex)
@@ -128,8 +167,9 @@ class Elevator {
             }else {
                 break
             }
-            console.log(`We are passing floor ${floorIndex} floor.`)
         }
+
+        console.log('***Passengers delivery process has finished***')
     }
 
     isThereAnyPassengerInElevator(){
@@ -158,71 +198,78 @@ class Elevator {
     }
 
 
-    resetState(){
+    resetElevatorState(){
+        console.log('***Reset elvator state start***')
         this.currentAmountOfPassengers = 0
         this.currentWeight = 0
         this.currentAmountOfPassengers = 0
         this.floorsPassengers = new Map()
         this.notifiersMap = new Map()
+        console.log('***Reset elvator state end***')
     }
 
 }
 
 // Testing
 
-// Normal passengers
-let ivan = new Person('Ivan', 55, 8, false)
-let vika = new Person('Vika', 87, 21, false)
-let sveta = new Person('Sveta', 100, 30, false)
-let nastya = new Person('Nastya', 77, 23, false)
-let vov4ik = new Person('Vov4ik', 55, 6, false)
-
-// Big passengers
-let max = new Person('Max', 132, 15, false)
-let vlad = new Person('Vlad', 144, 23, false)
-let alex = new Person('Alex', 154, 23, false)
-
-// People that need reminders
-let petia = new Person('Petia', 132, 8, true)
-let vasya = new Person('Vasya', 144, 8, true)
-
-//Edge floors passengers
-let bob = new Person('Bob', 67,2, false)
-let tom = new Person('Tom', 76, 2, true)
-let jim = new Person('Jim', 56, 29, false)
-let july = new Person('July', 65, 30, true)
-
 let normalPassengers = [
-    ivan, vika, sveta, nastya, vov4ik
+    new Person(),
+    new Person(),
+    new Person(),
+    new Person(),
+    new Person()
 ]
 
 let bigPassengers = [
-    sveta, max, ivan
+    new Person('Tom', 150, 15, false),
+    new Person('Jim', 150, 29, false),
+    new Person('Linda', 132, 2, false)
 ]
 
 let passengersThatNeedReminders = [
-    petia, vasya, ivan, max, vlad, vika
+    new Person('Petia', 80, 2, true),
+    new Person('Vasya', 79, 8, true),
+    new Person('John', 76, 23, true),
+    new Person('Carter', 76, 25, true),
+    new Person('Daniel', 76, 27, true)
 ]
 
 let edgeFloorsPassengers = [
-    bob, tom, jim, july
+    new Person('Petia', 60, 1, true),
+    new Person('Vasya', 60, 2, true),
+    new Person('John', 60, 30, true),
+    new Person('Carter', 60, 13, true),
+    new Person('Daniel', 60, 31, true)
 ]
 
 let tooManyPassengers = [
-    ivan, vika, bob, tom, july, vasya, vlad, vika, alex
+    new Person(),
+    new Person(),
+    new Person(),
+    new Person(),
+    new Person(),
+    new Person(),
+    new Person(),
+    new Person(),
+    new Person(),
+    new Person(),
+    new Person(),
 ]
 
-
-
 let elevator = new Elevator()
+
+
+// elevator.elevate(lowFloorsPassengers)
+
+
 console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
 elevator.elevate(normalPassengers)
 console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
 elevator.elevate(bigPassengers)
 console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-elevator.elevate(passengersThatNeedReminders)
-console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+// elevator.elevate(passengersThatNeedReminders)
+// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+// elevator.elevate(edgeFloorsPassengers)
+// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
 elevator.elevate(edgeFloorsPassengers)
-console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-elevator.elevate(tooManyPassengers)
-console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
