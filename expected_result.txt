@@ -1,21 +1,23 @@
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-Passengers are registered, total amount of them: 5 and total weight: 374.
+***Passengers onboarding process has started***
+***Passengers onboarding is finished, total amount of them: 5 and total weight: 360.***
+***Passengers delivery process has started***
 We are passing floor 2 floor.
 We are passing floor 3 floor.
+We are stopping at the floor number 3, since there are passengers to go out.
+My name is John and my weight is 61 and I am leaving elevator on 3-th floor.
 We are passing floor 4 floor.
 We are passing floor 5 floor.
-We are stopping at the floor number 6, since there are passengers to go out.
-My name is Vov4ik and my weight is 55 and I am leaving elevator on 6-th floor.
 We are passing floor 6 floor.
 We are passing floor 7 floor.
-We are stopping at the floor number 8, since there are passengers to go out.
-My name is Ivan and my weight is 55 and I am leaving elevator on 8-th floor.
 We are passing floor 8 floor.
+We are stopping at the floor number 8, since there are passengers to go out.
+My name is John and my weight is 78 and I am leaving elevator on 8-th floor.
 We are passing floor 9 floor.
 We are passing floor 10 floor.
 We are passing floor 11 floor.
 We are passing floor 12 floor.
-We are passing floor 13 floor.
+We are stopping at the floor number 12, since there are passengers to go out.
+My name is John and my weight is 45 and I am leaving elevator on 12-th floor.
 We are passing floor 14 floor.
 We are passing floor 15 floor.
 We are passing floor 16 floor.
@@ -23,42 +25,42 @@ We are passing floor 17 floor.
 We are passing floor 18 floor.
 We are passing floor 19 floor.
 We are passing floor 20 floor.
-We are stopping at the floor number 21, since there are passengers to go out.
-My name is Vika and my weight is 87 and I am leaving elevator on 21-th floor.
 We are passing floor 21 floor.
 We are passing floor 22 floor.
-We are stopping at the floor number 23, since there are passengers to go out.
-My name is Nastya and my weight is 77 and I am leaving elevator on 23-th floor.
+We are stopping at the floor number 22, since there are passengers to go out.
+My name is John and my weight is 99 and I am leaving elevator on 22-th floor.
 We are passing floor 23 floor.
 We are passing floor 24 floor.
 We are passing floor 25 floor.
 We are passing floor 26 floor.
-We are passing floor 27 floor.
-We are passing floor 28 floor.
-We are passing floor 29 floor.
-We are stopping at the floor number 30, since there are passengers to go out.
-My name is Sveta and my weight is 100 and I am leaving elevator on 30-th floor.
-We are passing floor 30 floor.
+We are stopping at the floor number 26, since there are passengers to go out.
+My name is John and my weight is 77 and I am leaving elevator on 26-th floor.
+***Passengers delivery process has finished***
+***Reset elvator state start***
+***Reset elvator state end***
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-Passengers are registered, total amount of them: 3 and total weight: 287.
+
+
+
+***Passengers onboarding process has started***
+Sorry but max weight 400 is already exceeded, so we cannot accept you
+***Passengers onboarding is finished, total amount of them: 2 and total weight: 300.***
+***Passengers delivery process has started***
 We are passing floor 2 floor.
 We are passing floor 3 floor.
 We are passing floor 4 floor.
 We are passing floor 5 floor.
 We are passing floor 6 floor.
 We are passing floor 7 floor.
-We are stopping at the floor number 8, since there are passengers to go out.
-My name is Ivan and my weight is 55 and I am leaving elevator on 8-th floor.
 We are passing floor 8 floor.
 We are passing floor 9 floor.
 We are passing floor 10 floor.
 We are passing floor 11 floor.
 We are passing floor 12 floor.
-We are passing floor 13 floor.
 We are passing floor 14 floor.
+We are passing floor 15 floor.
 We are stopping at the floor number 15, since there are passengers to go out.
-My name is Max and my weight is 132 and I am leaving elevator on 15-th floor.
-We are passing floor 15 floor.
+My name is Tom and my weight is 150 and I am leaving elevator on 15-th floor.
 We are passing floor 16 floor.
 We are passing floor 17 floor.
 We are passing floor 18 floor.
@@ -73,84 +75,40 @@ We are passing floor 26 floor.
 We are passing floor 27 floor.
 We are passing floor 28 floor.
 We are passing floor 29 floor.
-We are stopping at the floor number 30, since there are passengers to go out.
-My name is Sveta and my weight is 100 and I am leaving elevator on 30-th floor.
-We are passing floor 30 floor.
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-Passengers are registered, total amount of them: 3 and total weight: 331.
-We are passing floor 2 floor.
-We are passing floor 3 floor.
-We are passing floor 4 floor.
-We are passing floor 5 floor.
-We are passing floor 6 floor.
-We are passing floor 7 floor.
-We are stopping at the floor number 8, since there are passengers to go out.
-Reminder for  Petia. Please leave.
-My name is Petia and my weight is 132 and I am leaving elevator on 8-th floor.
-Reminder for  Vasya. Please leave.
-My name is Vasya and my weight is 144 and I am leaving elevator on 8-th floor.
-My name is Ivan and my weight is 55 and I am leaving elevator on 8-th floor.
-We are passing floor 8 floor.
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-Passengers are registered, total amount of them: 4 and total weight: 264.
-We are stopping at the floor number 2, since there are passengers to go out.
-My name is Bob and my weight is 67 and I am leaving elevator on 2-th floor.
-Reminder for  Tom. Please leave.
-My name is Tom and my weight is 76 and I am leaving elevator on 2-th floor.
-We are passing floor 2 floor.
-We are passing floor 3 floor.
-We are passing floor 4 floor.
-We are passing floor 5 floor.
-We are passing floor 6 floor.
-We are passing floor 7 floor.
-We are passing floor 8 floor.
-We are passing floor 9 floor.
-We are passing floor 10 floor.
-We are passing floor 11 floor.
-We are passing floor 12 floor.
-We are passing floor 13 floor.
-We are passing floor 14 floor.
-We are passing floor 15 floor.
-We are passing floor 16 floor.
-We are passing floor 17 floor.
-We are passing floor 18 floor.
-We are passing floor 19 floor.
-We are passing floor 20 floor.
-We are passing floor 21 floor.
-We are passing floor 22 floor.
-We are passing floor 23 floor.
-We are passing floor 24 floor.
-We are passing floor 25 floor.
-We are passing floor 26 floor.
-We are passing floor 27 floor.
-We are passing floor 28 floor.
 We are stopping at the floor number 29, since there are passengers to go out.
-My name is Jim and my weight is 56 and I am leaving elevator on 29-th floor.
-We are passing floor 29 floor.
-We are stopping at the floor number 30, since there are passengers to go out.
-Reminder for  July. Please leave.
-My name is July and my weight is 65 and I am leaving elevator on 30-th floor.
-We are passing floor 30 floor.
+My name is Jim and my weight is 150 and I am leaving elevator on 29-th floor.
+***Passengers delivery process has finished***
+***Reset elvator state start***
+***Reset elvator state end***
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-Passengers are registered, total amount of them: 5 and total weight: 350.
-We are stopping at the floor number 2, since there are passengers to go out.
-My name is Bob and my weight is 67 and I am leaving elevator on 2-th floor.
-Reminder for  Tom. Please leave.
-My name is Tom and my weight is 76 and I am leaving elevator on 2-th floor.
+
+
+
+***Passengers onboarding process has started***
+We are adding you Petia to our reminder list
+We are adding you Vasya to our reminder list
+We are adding you John to our reminder list
+We are adding you Carter to our reminder list
+We are adding you Daniel to our reminder list
+***Passengers onboarding is finished, total amount of them: 5 and total weight: 387.***
+***Passengers delivery process has started***
 We are passing floor 2 floor.
+We are stopping at the floor number 2, since there are passengers to go out.
+Reminder for  Petia. Please leave.
+My name is Petia and my weight is 80 and I am leaving elevator on 2-th floor.
 We are passing floor 3 floor.
 We are passing floor 4 floor.
 We are passing floor 5 floor.
 We are passing floor 6 floor.
 We are passing floor 7 floor.
-We are stopping at the floor number 8, since there are passengers to go out.
-My name is Ivan and my weight is 55 and I am leaving elevator on 8-th floor.
 We are passing floor 8 floor.
+We are stopping at the floor number 8, since there are passengers to go out.
+Reminder for  Vasya. Please leave.
+My name is Vasya and my weight is 79 and I am leaving elevator on 8-th floor.
 We are passing floor 9 floor.
 We are passing floor 10 floor.
 We are passing floor 11 floor.
 We are passing floor 12 floor.
-We are passing floor 13 floor.
 We are passing floor 14 floor.
 We are passing floor 15 floor.
 We are passing floor 16 floor.
@@ -158,8 +116,57 @@ We are passing floor 17 floor.
 We are passing floor 18 floor.
 We are passing floor 19 floor.
 We are passing floor 20 floor.
-We are stopping at the floor number 21, since there are passengers to go out.
-My name is Vika and my weight is 87 and I am leaving elevator on 21-th floor.
+We are passing floor 21 floor.
+We are passing floor 22 floor.
+We are passing floor 23 floor.
+We are stopping at the floor number 23, since there are passengers to go out.
+Reminder for  John. Please leave.
+My name is John and my weight is 76 and I am leaving elevator on 23-th floor.
+We are passing floor 24 floor.
+We are passing floor 25 floor.
+We are stopping at the floor number 25, since there are passengers to go out.
+Reminder for  Carter. Please leave.
+My name is Carter and my weight is 76 and I am leaving elevator on 25-th floor.
+We are passing floor 26 floor.
+We are passing floor 27 floor.
+We are stopping at the floor number 27, since there are passengers to go out.
+Reminder for  Daniel. Please leave.
+My name is Daniel and my weight is 76 and I am leaving elevator on 27-th floor.
+***Passengers delivery process has finished***
+***Reset elvator state start***
+***Reset elvator state end***
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+***Passengers onboarding process has started***
+Sorry, Petia, but we are not stopping at floor 1, so we cannot accept you as passenger
+We are adding you Vasya to our reminder list
+Sorry, Carter, but we are not stopping at floor 13, because it is haunted by demons and ghosts...., so we cannot accept you onboard.
+Sorry, Daniel, but we are not stopping at floor 31, so we cannot accept you as passenger
+***Passengers onboarding is finished, total amount of them: 2 and total weight: 120.***
+***Passengers delivery process has started***
+We are passing floor 2 floor.
+We are stopping at the floor number 2, since there are passengers to go out.
+Reminder for  Vasya. Please leave.
+My name is Vasya and my weight is 60 and I am leaving elevator on 2-th floor.
+We are passing floor 3 floor.
+We are passing floor 4 floor.
+We are passing floor 5 floor.
+We are passing floor 6 floor.
+We are passing floor 7 floor.
+We are passing floor 8 floor.
+We are passing floor 9 floor.
+We are passing floor 10 floor.
+We are passing floor 11 floor.
+We are passing floor 12 floor.
+We are passing floor 14 floor.
+We are passing floor 15 floor.
+We are passing floor 16 floor.
+We are passing floor 17 floor.
+We are passing floor 18 floor.
+We are passing floor 19 floor.
+We are passing floor 20 floor.
 We are passing floor 21 floor.
 We are passing floor 22 floor.
 We are passing floor 23 floor.
@@ -169,8 +176,55 @@ We are passing floor 26 floor.
 We are passing floor 27 floor.
 We are passing floor 28 floor.
 We are passing floor 29 floor.
-We are stopping at the floor number 30, since there are passengers to go out.
-Reminder for  July. Please leave.
-My name is July and my weight is 65 and I am leaving elevator on 30-th floor.
 We are passing floor 30 floor.
+We are stopping at the floor number 30, since there are passengers to go out.
+My name is John and my weight is 60 and I am leaving elevator on 30-th floor.
+***Passengers delivery process has finished***
+***Reset elvator state start***
+***Reset elvator state end***
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+***Passengers onboarding process has started***
+***Passengers onboarding is finished, total amount of them: 5 and total weight: 394.***
+***Passengers delivery process has started***
+We are passing floor 2 floor.
+We are passing floor 3 floor.
+We are passing floor 4 floor.
+We are passing floor 5 floor.
+We are passing floor 6 floor.
+We are passing floor 7 floor.
+We are passing floor 8 floor.
+We are passing floor 9 floor.
+We are passing floor 10 floor.
+We are passing floor 11 floor.
+We are passing floor 12 floor.
+We are stopping at the floor number 12, since there are passengers to go out.
+My name is John and my weight is 50 and I am leaving elevator on 12-th floor.
+We are passing floor 14 floor.
+We are passing floor 15 floor.
+We are stopping at the floor number 15, since there are passengers to go out.
+My name is John and my weight is 73 and I am leaving elevator on 15-th floor.
+We are passing floor 16 floor.
+We are stopping at the floor number 16, since there are passengers to go out.
+My name is John and my weight is 92 and I am leaving elevator on 16-th floor.
+We are passing floor 17 floor.
+We are passing floor 18 floor.
+We are stopping at the floor number 18, since there are passengers to go out.
+My name is John and my weight is 80 and I am leaving elevator on 18-th floor.
+We are passing floor 19 floor.
+We are passing floor 20 floor.
+We are passing floor 21 floor.
+We are passing floor 22 floor.
+We are passing floor 23 floor.
+We are passing floor 24 floor.
+We are passing floor 25 floor.
+We are passing floor 26 floor.
+We are passing floor 27 floor.
+We are passing floor 28 floor.
+We are stopping at the floor number 28, since there are passengers to go out.
+My name is John and my weight is 99 and I am leaving elevator on 28-th floor.
+***Passengers delivery process has finished***
+***Reset elvator state start***
+***Reset elvator state end***

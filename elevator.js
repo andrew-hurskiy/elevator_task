@@ -13,13 +13,13 @@
 function getRandomFloor() {
     const MAX_FLOOR = 30
     const MIN_FLOOR = 2
-    return Math.floor(Math.random() * (MAX_FLOOR - MIN_FLOOR + 1)) + MIN_FLOOR;
+    return Math.floor(Math.random() * (MAX_FLOOR - MIN_FLOOR + 1)) + MIN_FLOOR
 }
 
 function getRandomWeight(){
     const MIN_NORMAL_WEIGHT = 45
     const MAX_NORMAL_WEIGHT = 100
-    return Math.floor(Math.random() * (MAX_NORMAL_WEIGHT - MIN_NORMAL_WEIGHT + 1)) + MIN_NORMAL_WEIGHT;
+    return Math.floor(Math.random() * (MAX_NORMAL_WEIGHT - MIN_NORMAL_WEIGHT + 1)) + MIN_NORMAL_WEIGHT
 }
 
 class Person {
@@ -92,45 +92,42 @@ class Elevator {
     }
 
     isThereStillPlaceForAnybody(){
-        return this.currentAmountOfPassengers < this.MAX_AMOUNT_OF_PASSENGERS
+        return ( this.currentAmountOfPassengers < this.MAX_AMOUNT_OF_PASSENGERS )
     }
 
     areTherePotentialPassengers(potentialPassengers){
-        return potentialPassengers.length !== 0
+        return ( potentialPassengers.length !== 0 )
     }
 
     register(passengerToRegister){
         if (this.isMaxWeightNoExceeded(passengerToRegister)){
-            if (this.isTargetFloorIsValid(passengerToRegister)){
-                if (this.isTargetFloorIsNotMysterious(passengerToRegister)){
+            if (this.isTargetFloorValid(passengerToRegister)){
+                if (this.isTargetFloorNotMysterious(passengerToRegister)
+                ){
                     this.assignPassengerToFloor(passengerToRegister)
-                    this.currentAmountOfPassengers++
-                    this.currentWeight += passengerToRegister.weight
-                    if (passengerToRegister.needReminder === true){
-                        console.log(`We are adding you ${passengerToRegister.name} to our reminder list`)
-                        this.addPassengerToNotifierList(passengerToRegister)
-                    }
+                    this.updateCurrentInformation(passengerToRegister)
+                    this.updateNotifierList(passengerToRegister)
                 }else {
-                    console.log(`Sorry, ${passengerToRegister.name}, but we are not stopping at floor ${passengerToRegister.targetFloor}, because it is haunted by demons and ghosts...., so we cannot accept you onboard.`)
+                    this.notifyPassengerAboutMysteryFloor(passengerToRegister)
                 }
             }else {
-                console.log(`Sorry, ${passengerToRegister.name}, but we are not stopping at floor ${passengerToRegister.targetFloor}, so we cannot accept you as passenger`)
+                this.notifyPassengerAboutWrongFloor(passengerToRegister);
             }
         }else {
-            console.log(`Sorry but max weight ${this.MAX_TOTAL_WEIGHT} is already exceeded, so we cannot accept you`)
+            this.notifyPassengersAboutExceededWeight();
         }
     }
 
     isMaxWeightNoExceeded(potentialPassenger){
-        return (this.currentWeight + potentialPassenger.weight) < this.MAX_TOTAL_WEIGHT
+        return (this.currentWeight + potentialPassenger.weight) <= this.MAX_TOTAL_WEIGHT
     }
 
-    isTargetFloorIsValid(potentialPassenger){
+    isTargetFloorValid(potentialPassenger){
         return (potentialPassenger.targetFloor >= this.INITIAL_FLOOR
                  && potentialPassenger.targetFloor <= this.AMOUNT_OF_FLOORS)
     }
 
-    isTargetFloorIsNotMysterious(potentialPassenger){
+    isTargetFloorNotMysterious(potentialPassenger){
         return (potentialPassenger.targetFloor !== this.MYSTERIOUS_FLOOR)
     }
 
@@ -138,6 +135,30 @@ class Elevator {
         this.floorsPassengers
             .get(passengerToAdd.targetFloor)
             .push(passengerToAdd)
+    }
+
+    updateCurrentInformation(passengerToRegister){
+        this.currentAmountOfPassengers++
+        this.currentWeight += passengerToRegister.weight
+    }
+
+    updateNotifierList(passengerToRegister){
+        if (passengerToRegister.needReminder === true){
+            console.log(`We are adding you ${passengerToRegister.name} to our reminder list`)
+            this.addPassengerToNotifierList(passengerToRegister)
+        }
+    }
+
+    notifyPassengerAboutMysteryFloor(passengerToRegister){
+        console.log(`Sorry, ${passengerToRegister.name}, but we are not stopping at floor ${passengerToRegister.targetFloor}, because it is haunted by demons and ghosts...., so we cannot accept you onboard.`)
+    }
+
+    notifyPassengerAboutWrongFloor(passengerToRegister){
+        console.log(`Sorry, ${passengerToRegister.name}, but we are not stopping at floor ${passengerToRegister.targetFloor}, so we cannot accept you as passenger`)
+    }
+
+    notifyPassengersAboutExceededWeight(){
+        console.log(`Sorry but max weight ${this.MAX_TOTAL_WEIGHT} is already exceeded, so we cannot accept you`)
     }
 
     addPassengerToNotifierList(passengerThatNeedNotification){
@@ -211,7 +232,6 @@ class Elevator {
 }
 
 // Testing
-
 let normalPassengers = [
     new Person(),
     new Person(),
@@ -223,7 +243,7 @@ let normalPassengers = [
 let bigPassengers = [
     new Person('Tom', 150, 15, false),
     new Person('Jim', 150, 29, false),
-    new Person('Linda', 132, 2, false)
+    new Person('Linda', 150, 2, false)
 ]
 
 let passengersThatNeedReminders = [
@@ -235,11 +255,11 @@ let passengersThatNeedReminders = [
 ]
 
 let edgeFloorsPassengers = [
-    new Person('Petia', 60, 1, true),
+    new Person('Petia', 60, 1, false),
     new Person('Vasya', 60, 2, true),
-    new Person('John', 60, 30, true),
+    new Person('John', 60, 30, false),
     new Person('Carter', 60, 13, true),
-    new Person('Daniel', 60, 31, true)
+    new Person('Daniel', 60, 31, false)
 ]
 
 let tooManyPassengers = [
@@ -258,18 +278,12 @@ let tooManyPassengers = [
 
 let elevator = new Elevator()
 
-
-// elevator.elevate(lowFloorsPassengers)
-
-
-console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
 elevator.elevate(normalPassengers)
-console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n\n`)
 elevator.elevate(bigPassengers)
-console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-// elevator.elevate(passengersThatNeedReminders)
-// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-// elevator.elevate(edgeFloorsPassengers)
-// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n\n`)
+elevator.elevate(passengersThatNeedReminders)
+console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n\n`)
 elevator.elevate(edgeFloorsPassengers)
-// console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n\n`)
+elevator.elevate(tooManyPassengers)
