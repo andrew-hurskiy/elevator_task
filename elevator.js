@@ -51,7 +51,7 @@ class Elevator {
     elevate(passengers){
         this.registerPassengers(passengers)
         this.deliverPassengers()
-        this.resetElevatorState()
+        this.reset()
     }
 
 
@@ -207,7 +207,7 @@ class Elevator {
     }
 
 
-    resetElevatorState(){
+    reset(){
         console.log('***Reset elvator state start***')
         this.currentAmountOfPassengers = 0
         this.currentWeight = 0
