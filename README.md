@@ -30,7 +30,7 @@ with existed code, we have prepared this task.
 What we have done is we have removed some peaces of code from program, so you have to insert those peaces yourself.
 We have left comments in those places, where code should be placed.
 
-Final program should run without errors. You can run it using nodeJs: `node elevator.js` from terminal.
+Final program should run without errors. You can run it using nodeJs: `node elevator_broken.js` from terminal.
 And it should produce output similiar to one, you can see in `expected_output.txt` file.
 
 ## Extra challange
