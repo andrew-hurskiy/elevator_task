@@ -34,5 +34,4 @@ Final program should run without errors. You can run it using nodeJs: `node elev
 And it should produce output similiar to one, you can see in `expected_output.txt` file.
 
 ## Extra challange
-1. How would you improve this program?
-2. What do you want to change and how?
+1. Add any new elevator related feature.
