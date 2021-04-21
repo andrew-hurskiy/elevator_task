@@ -1,0 +1,22 @@
+{
+  "name": "elevator_task",
+  "version": "1.0.0",
+  "description": "We simulate behaviour of our elevator, using simple `console.log()` statements, so   it should be clear what is going on, when reading output.",
+  "main": "elevator_broken.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrew-hurskiy/elevator_task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrew-hurskiy/elevator_task/issues"
+  },
+  "homepage": "https://github.com/andrew-hurskiy/elevator_task#readme",
+  "devDependencies": {
+    "cypress": "^7.1.0"
+  }
+}

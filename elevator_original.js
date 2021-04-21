@@ -10,7 +10,7 @@ function getRandomWeight(){
     return Math.floor(Math.random() * (MAX_NORMAL_WEIGHT - MIN_NORMAL_WEIGHT + 1)) + MIN_NORMAL_WEIGHT
 }
 
-class Person {
+export class Person {
     
     constructor(
         name='John',
@@ -32,7 +32,7 @@ class Person {
         console.log(`My name is ${this.name} and my weight is ${this.weight} and I am leaving elevator on ${currentFloor}-th floor.`)
     }
 }
-class Elevator {
+export class Elevator {
 
     constructor(){
         this.INITIAL_FLOOR = 2
@@ -61,7 +61,7 @@ class Elevator {
         console.log('***Passengers onboarding process has started***')
 
         while (
-            this.isThereStillPlaceForAnybody()&& 
+            this.isThereStillPlaceForAnybody() && 
 			this.areTherePotentialPassengers(listOfPassengers)
         ){
             this.register(listOfPassengers.shift())
@@ -84,12 +84,24 @@ class Elevator {
     }
 
     areTherePotentialPassengers(potentialPassengers){
-        return ( potentialPassengers.length !== 0 )
+        return (
+            potentialPassengers.length !== 0 && 
+            this._isThereAtLeastOnePerson(potentialPassengers)
+            )
+    }
+
+    _isThereAtLeastOnePerson(potentialPassengers){
+        for (let potentialPassenger of potentialPassengers){
+            if (potentialPassenger instanceof Person){
+                return true;
+            }
+        }
+        return false;
     }
 
     register(passengerToRegister){
         if (this.isMaxWeightNoExceeded(passengerToRegister)){
-            if (this.isTargetFloorValid(passengerToRegister)){
+            if (this.isTargetFloorValid(passengerToRegister.targetFloor)){
                 if (this.isTargetFloorNotMysterious(passengerToRegister)
                 ){
                     this.assignPassengerToFloor(passengerToRegister)
@@ -110,9 +122,13 @@ class Elevator {
         return (this.currentWeight + potentialPassenger.weight) <= this.MAX_TOTAL_WEIGHT
     }
 
-    isTargetFloorValid(potentialPassenger){
-        return (potentialPassenger.targetFloor >= this.INITIAL_FLOOR
-                 && potentialPassenger.targetFloor <= this.AMOUNT_OF_FLOORS)
+    isTargetFloorValid(targetFloor){
+        return (targetFloor > this.INITIAL_FLOOR
+                 && targetFloor <= this.AMOUNT_OF_FLOORS)
+    }
+
+    _floatToInt(possibleFloat){
+        return parseInt(possibleFloat.toFixed())
     }
 
     isTargetFloorNotMysterious(potentialPassenger){
