@@ -102,7 +102,7 @@ export class Elevator {
     register(passengerToRegister){
         if (this.isMaxWeightNoExceeded(passengerToRegister)){
             if (this.isTargetFloorValid(passengerToRegister.targetFloor)){
-                if (this.isTargetFloorNotMysterious(passengerToRegister)
+                if (this.isTargetFloorNotMysterious(passengerToRegister.targetFloor)
                 ){
                     this.assignPassengerToFloor(passengerToRegister)
                     this.updateCurrentInformation(passengerToRegister)
@@ -131,8 +131,8 @@ export class Elevator {
         return parseInt(possibleFloat.toFixed())
     }
 
-    isTargetFloorNotMysterious(potentialPassenger){
-        return (potentialPassenger.targetFloor !== this.MYSTERIOUS_FLOOR)
+    isTargetFloorNotMysterious(targetFloor){
+        return (targetFloor !== this.MYSTERIOUS_FLOOR)
     }
 
     assignPassengerToFloor(passengerToAdd){
