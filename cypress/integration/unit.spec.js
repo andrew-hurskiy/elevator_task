@@ -3,24 +3,48 @@ import Person from '../../app/person.js'
 let elevator
 
 describe('Testing register passengers method', () => {
+	const AMOUNT_OF_USEFUL_FLOORS = 29
+	const START_FLOOR = 2
+	const END_FLOOR = 30
 
 	beforeEach('Start with new elevator each time', () => {
+		cy.log('Create new elevator in beforeEach block')
 		elevator = new Elevator()
 	})
 
 	it('Verify that 29 floors are initialized', () => {
 		elevator.resetFloorsMap()
-		expect(elevator.floorsPassengers).to.have.length(29)
+		expect(elevator.floorsPassengers).to.have.length(AMOUNT_OF_USEFUL_FLOORS)
+	})
+
+	it('Verify that map is empty by default', () => {
+		expect(elevator.floorsPassengers).to.be.a('map').that.is.empty
 	})
 
 	it('Verify that each floor has empty array initially', () => {
 		elevator.resetFloorsMap();
-		for (let i = 2; i < 30; i ++){
+		for (let i = START_FLOOR; i < END_FLOOR; i ++){
 			expect(elevator.floorsPassengers.get(i)).to.be.an('array').that.is.empty;
 		}
 	})
 
-	it('Verify method for checking free place works fine', () => {
+	it('Verify that edge floors are initialized correctly', () => {
+		expect(elevator.floorsPassengers.get(1)).to.eq(undefined)
+		expect(elevator.floorsPassengers.get(30)).to.be.an('array').that.is.empty
+		expect(elevator.floorsPassengers.get(31)).to.eq(undefined)
+
+	})
+	
+	it('Verify only integer floors exist', () => {
+		expect(elevator.floorsPassengers.get(15.5)).to.eq(undefined)
+		expect(elevator.floorsPassengers.get(23.23)).to.eq(undefined)
+	})
+
+	it('Verify there are no grot floors', () => {
+		expect(elevator.floorsPassengers.get(-1)).to.eq(undefined)
+	})
+
+	it('Verify isThereStillPlaceForAnybody works fine', () => {
 	
 		expect(elevator.isThereStillPlaceForAnybody()).to.be.true
 
@@ -180,6 +204,8 @@ it('Testing update notifiers list', () => {
 	expect(elevator.notifiersMap.get(5)).to.eq('John')
 
 })
+
+
 
 
 
