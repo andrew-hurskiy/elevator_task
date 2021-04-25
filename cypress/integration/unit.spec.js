@@ -1,4 +1,5 @@
-import { Person, Elevator } from '../../elevator_original'
+import Elevator from '../../app/elevator.js'
+import Person from '../../app/person.js'
 let elevator
 
 describe('Testing register passengers method', () => {

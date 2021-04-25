@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "We simulate behaviour of our elevator, using simple `console.log()` statements, so   it should be clear what is going on, when reading output.",
   "main": "elevator_broken.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin cypress open"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andrew-hurskiy/elevator_task.git"
   },
-  "author": "",
+  "author": "Andriy Hurskiy",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/andrew-hurskiy/elevator_task/issues"
