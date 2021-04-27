@@ -205,6 +205,41 @@ it('Testing update notifiers list', () => {
 
 })
 
+it('Testing isTherePassengerInElevator', () => {
+	expect(elevator.isThereAnyPassengerInElevator()).to.be.false
+
+	elevator.currentAmountOfPassengers = 1;
+	expect(elevator.isThereAnyPassengerInElevator()).to.be.true
+
+	elevator.currentAmountOfPassengers = 5;
+	expect(elevator.isThereAnyPassengerInElevator()).to.be.true
+
+	elevator.currentAmountOfPassengers = -1;
+	expect(elevator.isThereAnyPassengerInElevator()).to.be.false
+})
+
+it('Testing isAnybodyGoesOut method', () => {
+
+	elevator.registerPassengers(
+		[
+		new Person('Tom', 66, 2, false),
+		new Person('Tom', 66, 10, false),
+		new Person('Tom', 66, 29, false),
+		new Person('Tom', 66, 30, false),
+		]
+	)
+
+	expect(elevator.isAnyBodyGoesOut(2)).to.be.true
+	expect(elevator.isAnyBodyGoesOut(10)).to.be.true
+	expect(elevator.isAnyBodyGoesOut(29)).to.be.true
+	expect(elevator.isAnyBodyGoesOut(30)).to.be.true
+
+	expect(elevator.isAnyBodyGoesOut(3)).to.be.false
+	expect(elevator.isAnyBodyGoesOut(9)).to.be.false
+	expect(elevator.isAnyBodyGoesOut(28)).to.be.false
+	expect(elevator.isAnyBodyGoesOut(13)).to.be.false
+})
+
 
 
 
