@@ -9,13 +9,9 @@ import {
 
 let elevator = new Elevator()
 
-
-elevator.elevate(normalPassengers)
-console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n\n`)
-elevator.elevate(bigPassengers)
-console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n\n`)
-elevator.elevate(passengersThatNeedReminders)
-console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n\n`)
-elevator.elevate(edgeFloorsPassengers)
-console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n\n\n`)
-elevator.elevate(tooManyPassengers)
+elevator
+    .elevate(normalPassengers)
+    .elevate(bigPassengers)
+    .elevate(passengersThatNeedReminders)
+    .elevate(edgeFloorsPassengers)
+    .elevate(tooManyPassengers)

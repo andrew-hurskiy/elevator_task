@@ -19,6 +19,7 @@ class Elevator {
         this.registerPassengers(passengers)
         this.deliverPassengers()
         this.reset()
+        return this;
     }
 
 
